@@ -1,0 +1,20 @@
+{
+	"name": "x86 and x86_64 Assembly",
+	"version": "2.1.2",
+	"engines": {
+		"vscode": ">=0.9.0-pre.1"
+	},
+	"publisher": "13xforever",
+	"contributes": {
+		"languages": [{
+			"id": "asm",
+			"aliases": ["x86 and x86_64 Assembly", "asm"],
+			"extensions": [".asm",".nasm",".yasm",".inc"]
+		}],
+		"grammars": [{
+			"language": "asm",
+			"scopeName": "source.asm.x86_64",
+			"path": "./syntaxes/x86_64 Assembly.tmLanguage"
+		}]
+	}
+}
