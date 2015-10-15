@@ -464,7 +464,7 @@
 					<key>match</key>
 					<string>\b(f((inc|dec)stp|free|n?(init|clex|st[cs]w|stenv|save)|ld(cw|env)|rstor|nop)|f?wait)\b</string>
 					<key>name</key>
-					<string>keyword.mnemonic.fpu.control</string>
+					<string>keyword.mnemonic.fpu.control-management</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -676,7 +676,7 @@
 					<key>match</key>
 					<string>\b((mov|cmp|sca|lod|sto)(s[bdw]?)|rep(n?[ez])?)\b</string>
 					<key>name</key>
-					<string>keyword.mnemonic.general-purpose.string</string>
+					<string>keyword.mnemonic.general-purpose.strings</string>
 				</dict>
 				<dict>
 					<key>match</key>
