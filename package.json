@@ -1,6 +1,6 @@
 {
 	"name": "x86 and x86_64 Assembly",
-	"version": "2.1.2",
+	"version": "2.1.5",
 	"engines": {
 		"vscode": ">=0.9.0-pre.1"
 	},
