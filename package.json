@@ -1,6 +1,7 @@
 {
 	"name": "language-x86-64-assembly",
-	"version": "2.1.6",
+	"displayName": "x86 and x86_64 Assembly",
+	"version": "2.1.7",
 	"engines": {
 		"vscode": ">=0.9.0-pre.1"
 	},
@@ -20,9 +21,7 @@
 			"path": "./syntaxes/language-x86_64-assembly.tmLanguage"
 		}]
 	},
-	"categories": [
-		"Languages"
-	],
+	"categories": ["Languages"],
 	"repository": {
 		"url": "https://github.com/13xforever/x86_64-assembly-vscode",
 		"type": "git"
