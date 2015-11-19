@@ -1,8 +1,11 @@
 {
-	"name": "x86 and x86_64 Assembly",
+	"name": "language-x86-64-assembly",
 	"version": "2.1.5",
 	"engines": {
 		"vscode": ">=0.9.0-pre.1"
+	},
+	"author": {
+		"name": "Ilya Veselov"
 	},
 	"publisher": "13xforever",
 	"contributes": {
@@ -14,7 +17,14 @@
 		"grammars": [{
 			"language": "asm",
 			"scopeName": "source.asm.x86_64",
-			"path": "./syntaxes/x86_64 Assembly.tmLanguage"
+			"path": "./syntaxes/language-x86_64-assembly.tmLanguage"
 		}]
+	},
+	"categories": [
+		"Languages"
+	],
+	"repository": {
+		"url": "https://github.com/13xforever/x86_64-assembly-vscode",
+		"type": "git"
 	}
 }

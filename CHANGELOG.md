@@ -1,3 +1,6 @@
+## 2.1.6
+Updated the extension to support Visual Studio Code Marketplace
+
 ## 2.1.5
 Small highlighting fix for some FPU instructions
 
