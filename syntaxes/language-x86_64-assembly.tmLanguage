@@ -1181,7 +1181,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(lock|hlt|rsm|(rd|wr)(msr|[fg]sbase)|rd(pmc|tscp?)|sys(enter|exit))\b</string>
+					<string>\b(lock|hlt|rsm|(rd|wr)(msr|pkru|[fg]sbase)|rd(pmc|tscp?)|sys(enter|exit))\b</string>
 					<key>name</key>
 					<string>keyword.mnemonic.system</string>
 				</dict>

@@ -1,3 +1,6 @@
+## 2.1.10
+Updated with PKRU instructions
+
 ## 2.1.6
 Updated the extension to support Visual Studio Code Marketplace
 
