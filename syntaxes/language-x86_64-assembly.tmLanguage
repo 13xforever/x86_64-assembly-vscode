@@ -602,7 +602,7 @@
 		<key>mnemonics-future-intel-cet</key>
 		<dict>
 			<key>match</key>
-			<string>\b((inc|save|rstor)ssp|wru?ss|(set|clr)ssby|endbr(32|64))\b</string>
+			<string>\b((inc|save|rstor)ssp|wru?ss|(set|clr)ssbsy|endbr(32|64))\b</string>
 			<key>name</key>
 			<string>keyword.mnemonic.cet</string>
 		</dict>
