@@ -1,3 +1,6 @@
+## 2.1.12
+Intel CFE extension
+
 ## 2.1.10
 Updated with PKRU instructions
 

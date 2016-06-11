@@ -598,7 +598,7 @@
 		<key>mnemonics-future-intel-other</key>
 		<dict>
 			<key>match</key>
-			<string>\b(clflushopt|clwb|pcommit)\b</string>
+			<string>\b(clflushopt|clwb|pcommit|endbranch)\b</string>
 			<key>name</key>
 			<string>keyword.mnemonic.other</string>
 		</dict>
