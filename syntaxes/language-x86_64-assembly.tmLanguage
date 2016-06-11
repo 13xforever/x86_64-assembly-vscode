@@ -488,6 +488,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#mnemonics-future-intel-cet</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#mnemonics-future-intel-other</string>
 				</dict>
 			</array>
@@ -595,10 +599,17 @@
 			<key>name</key>
 			<string>keyword.mnemonic.opmask</string>
 		</dict>
+		<key>mnemonics-future-intel-cet</key>
+		<dict>
+			<key>match</key>
+			<string>\b((inc|save|rstor)ssp|wru?ss|(set|clr)ssby|endbr(32|64))\b</string>
+			<key>name</key>
+			<string>keyword.mnemonic.cet</string>
+		</dict>
 		<key>mnemonics-future-intel-other</key>
 		<dict>
 			<key>match</key>
-			<string>\b(clflushopt|clwb|pcommit|endbranch)\b</string>
+			<string>\b(clflushopt|clwb|pcommit)\b</string>
 			<key>name</key>
 			<string>keyword.mnemonic.other</string>
 		</dict>
