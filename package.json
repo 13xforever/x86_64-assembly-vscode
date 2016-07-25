@@ -14,7 +14,7 @@
 		"languages": [{
 			"id": "asm",
 			"aliases": ["x86 and x86_64 Assembly", "asm"],
-			"extensions": [".asm",".nasm",".yasm",".inc"]
+			"extensions": [".asm",".nasm",".yasm",".inc",".s"]
 		}],
 		"grammars": [{
 			"language": "asm",
