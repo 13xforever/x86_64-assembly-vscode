@@ -1,4 +1,4 @@
-# 2.2.1
+## 2.2.2
 Overhauled highlighting for sections, labels, prefixes, and numbers
 
 ## 2.1.15
