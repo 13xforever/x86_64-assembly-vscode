@@ -10,9 +10,21 @@
 		<string>inc</string>
 	</array>
 	<key>name</key>
-	<string>x86_64 Assembly v2</string>
+	<string>x86 and x86_64 Assembly</string>
 	<key>patterns</key>
 	<array>
+		<dict>
+			<key>include</key>
+			<string>#constants</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#entities</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#support</string>
+		</dict>
 		<dict>
 			<key>include</key>
 			<string>#comments</string>
@@ -27,23 +39,11 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#support</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#registers</string>
 		</dict>
 		<dict>
 			<key>include</key>
 			<string>#mnemonics</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#entities</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#constants</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -82,9 +82,27 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\$[0-9a-f]+\b</string>
+					<string>\b(([0-9]+\.[0-9]*)(e[+-]?[0-9]+)?|\.?[0-9]+e[+-]?[0-9]+)\b</string>
+					<key>name</key>
+					<string>constant.numeric.floating-point</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(\$[0-9a-f]+)\b</string>
 					<key>name</key>
 					<string>constant.numeric.literal</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b[01]+b\b</string>
+					<key>name</key>
+					<string>constant.numeric.bin</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b[0-7]+[oq]\b</string>
+					<key>name</key>
+					<string>constant.numeric.oct</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -94,7 +112,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b([0-9a-fA-F]+h?|0x[0-9a-fA-F]+)\b</string>
+					<string>\b([0-9a-fA-F]+h|0x[0-9a-fA-F]+)\b</string>
 					<key>name</key>
 					<string>constant.numeric.hex</string>
 				</dict>
@@ -106,21 +124,33 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(section\s+)?\.(data|bss|text)$</string>
+					<string>(section\s+)?\.((ro)?data|bss|text)</string>
 					<key>name</key>
 					<string>entity.name.section</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>^\s*\.?\w+:\s*(?=$|;)</string>
+					<string>^\s*(\w|[\._?])(\w|[_$#@~\.?])*\:</string>
 					<key>name</key>
 					<string>entity.name.function</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>^\s*([$@~])(\w|[_$#@~\.?])*\:</string>
+					<key>name</key>
+					<string>invalid.entity.name.function</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>^\.?(globa?l)\b</string>
 					<key>name</key>
 					<string>entity.directive</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(\$\w+)\b</string>
+					<key>name</key>
+					<string>text.variable</string>
 				</dict>
 			</array>
 		</dict>
@@ -592,19 +622,19 @@
 				</dict>
 			</array>
 		</dict>
-		<key>mnemonics-future-intel-opmask</key>
-		<dict>
-			<key>match</key>
-			<string>\b(k(add|andn?|(xn?)?or|mov|not|(or)?test|shift[lr])[bdqw]|kunpck(bw|wd|dq))\b</string>
-			<key>name</key>
-			<string>keyword.mnemonic.opmask</string>
-		</dict>
 		<key>mnemonics-future-intel-cet</key>
 		<dict>
 			<key>match</key>
 			<string>\b((inc|save|rstor)ssp|wru?ss|(set|clr)ssbsy|endbranch|endbr(32|64))\b</string>
 			<key>name</key>
 			<string>keyword.mnemonic.cet</string>
+		</dict>
+		<key>mnemonics-future-intel-opmask</key>
+		<dict>
+			<key>match</key>
+			<string>\b(k(add|andn?|(xn?)?or|mov|not|(or)?test|shift[lr])[bdqw]|kunpck(bw|wd|dq))\b</string>
+			<key>name</key>
+			<string>keyword.mnemonic.opmask</string>
 		</dict>
 		<key>mnemonics-future-intel-other</key>
 		<dict>
@@ -770,6 +800,46 @@
 			<string>\b(sha(1rnds4|256rnds2|1nexte|(1|256)msg[12]))\b</string>
 			<key>name</key>
 			<string>keyword.mnemonic.sha</string>
+		</dict>
+		<key>mnemonics-invalid</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#mnemonics-invalid-amd-sse5</string>
+				</dict>
+			</array>
+		</dict>
+		<key>mnemonics-invalid-amd-sse5</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\b(com[ps][ds]|pcomu?[bdqw])\b</string>
+					<key>name</key>
+					<string>invalid.keyword.mnemonic.sse5.comparison</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(cvtp(h2ps|s2ph)|frcz[ps][ds])\b</string>
+					<key>name</key>
+					<string>invalid.keyword.mnemonic.sse5.conversion</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(fn?m((add|sub)[ps][ds])|ph(addu?(b[dqw]|w[dq]|dq)|sub(bw|dq|wd))|pma(css?(d(d|q[hl])|w[dw])|dcss?wd))\b</string>
+					<key>name</key>
+					<string>invalid.keyword.mnemonic.sse5.packed-arithmetic</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(pcmov|permp[ds]|pperm|prot[bdqw]|psh[al][bdqw])\b</string>
+					<key>name</key>
+					<string>invalid.keyword.mnemonic.sse5.simd-integer</string>
+				</dict>
+			</array>
 		</dict>
 		<key>mnemonics-mmx</key>
 		<dict>
@@ -1329,7 +1399,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>^\s*[%#]\s*(define|defined|elif|else|if|ifdef|ifndef|line|pragma|undef|endif)\b</string>
+					<string>^\s*[%#]\s*(define|defined|elif|else|if|ifdef|ifndef|line|pragma|rep|undef|endif)\b</string>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
@@ -1516,21 +1586,27 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(byte|([doqty]|dq)?word|(d|res)[bdoqtwy]?|incbin|equ|times)\b</string>
+					<string>(?i)\b(byte|([doqty]|dq)?word|(d|res)[bdoqtwy]?|ddq|incbin|equ|times)\b</string>
 					<key>name</key>
 					<string>support.type.asm</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(\.?(align|bits|cpu|fpu))\b</string>
+					<string>(?i)\b(\.?(align|bits|cpu|fpu)|use(16|32|64))\b</string>
 					<key>name</key>
-					<string>support.other.asm.directive</string>
+					<string>support.directive.asm</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(strict|nosplit|near|far|abs|rel)\b</string>
+					<string>\b(strict|nosplit|near|far|abs|rel|seg|wrt)\b</string>
 					<key>name</key>
-					<string>support.other.asm.modifier</string>
+					<string>support.modifier.asm</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b([ao](16|32|64))\b</string>
+					<key>name</key>
+					<string>support.prefix.asm</string>
 				</dict>
 			</array>
 		</dict>
