@@ -1,3 +1,6 @@
+## 2.2.3
+Fixed missing AMD instructions, including support for Zen
+
 ## 2.2.2
 Overhauled highlighting for sections, labels, prefixes, and numbers
 

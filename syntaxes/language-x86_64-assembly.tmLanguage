@@ -1159,9 +1159,21 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(clgi|int3|invlpga|iretw|skinit|stgi|vm(load|mcall|run|save))\b</string>
+					<string>\b(bl([cs](fill|ic?|msk)|cs)|t1mskc|tzmsk)\b</string>
+					<key>name</key>
+					<string>keyword.mnemonic.supplemental.amd.general-purpose</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(clgi|int3|invlpga|iretw|skinit|stgi|vm(load|mcall|run|save)|monitorx|mwaitx)\b</string>
 					<key>name</key>
 					<string>keyword.mnemonic.supplemental.amd.system</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b([ls]lwpcb|lwp(ins|val))\b</string>
+					<key>name</key>
+					<string>keyword.mnemonic.supplemental.amd.profiling</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -1171,7 +1183,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(prefetch)\b</string>
+					<string>\b(prefetch|clzero)\b</string>
 					<key>name</key>
 					<string>keyword.mnemonic.supplemental.amd.cache-management</string>
 				</dict>
