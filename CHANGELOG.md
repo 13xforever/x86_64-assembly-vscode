@@ -1,3 +1,7 @@
+﻿## 2.2.4
+Expanded NASM macro support
+Partial support for GAS comment style
+
 ## 2.2.3
 Fixed missing AMD instructions, including support for Zen
 

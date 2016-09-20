@@ -1,7 +1,7 @@
 {
 	"name": "language-x86-64-assembly",
 	"displayName": "x86 and x86_64 Assembly",
-	"version": "2.2.3",
+	"version": "2.2.4",
 	"icon": "logo.png",
 	"engines": {
 		"vscode": ">=0.9.0-pre.1"
@@ -14,7 +14,7 @@
 		"languages": [{
 			"id": "asm",
 			"aliases": ["x86 and x86_64 Assembly", "asm"],
-			"extensions": [".asm",".nasm",".yasm",".inc"]
+			"extensions": [".asm",".nasm",".yasm",".inc",".s"]
 		}],
 		"grammars": [{
 			"language": "asm",
