@@ -4,7 +4,6 @@
 	"version": "2.2.6-pre.1",
 	"preview": true,
 	"icon": "logo.png",
-	"main":"./",
 	"engines": {
 		"vscode": ">=1.0.0"
 	},
