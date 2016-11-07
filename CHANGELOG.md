@@ -1,4 +1,7 @@
-﻿## 2.2.4
+## 2.2.8
+Fixed highlighting conflict for ah-dh registers with hex numbers
+
+## 2.2.4
 Expanded NASM macro support
 Partial support for GAS comment style
 

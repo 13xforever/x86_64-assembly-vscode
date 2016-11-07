@@ -8,11 +8,20 @@
 		<string>nasm</string>
 		<string>yasm</string>
 		<string>inc</string>
+		<string>s</string>
 	</array>
 	<key>name</key>
 	<string>x86 and x86_64 Assembly</string>
 	<key>patterns</key>
 	<array>
+		<dict>
+			<key>include</key>
+			<string>#registers</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#mnemonics</string>
+		</dict>
 		<dict>
 			<key>include</key>
 			<string>#constants</string>
@@ -36,14 +45,6 @@
 		<dict>
 			<key>include</key>
 			<string>#strings</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#registers</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#mnemonics</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -112,7 +113,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b([0-9a-fA-F]+h|0x[0-9a-fA-F]+)\b</string>
+					<string>\b([0-9a-fA-F]+[hH]|0x[0-9a-fA-F]+)\b</string>
 					<key>name</key>
 					<string>constant.numeric.hex</string>
 				</dict>
