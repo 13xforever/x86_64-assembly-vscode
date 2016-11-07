@@ -18,7 +18,7 @@ Source code
 ===========
 VS Code package is exported from [Textmate/Sublime Bundle](https://github.com/13xforever/x86-assembly-textmate-bundle), all issues and pull requests should be filed there.
 
-To compile the yaml sources to tmLanguage, you'll need [AAAPackageDev](https://packagecontrol.io/packages/AAAPackageDev). 
+To compile the yaml sources to tmLanguage, you'll need [PackageDev](https://packagecontrol.io/packages/PackageDev). 
 
 Contributors
 ============
