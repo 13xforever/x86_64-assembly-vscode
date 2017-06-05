@@ -1,3 +1,10 @@
+## 2.2.10
+Better support for datatypes
+* signed types (non-nasm)
+* better support for various number notations (bin, oct, dec, hex, and packed bcd)
+* better support for strings
+* more built-in nasm functions for type convertion and constants
+
 ## 2.2.8
 Fixed highlighting conflict for ah-dh registers with hex numbers
 

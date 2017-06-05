@@ -83,39 +83,51 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(([0-9]+\.[0-9]*)(e[+-]?[0-9]+)?|\.?[0-9]+e[+-]?[0-9]+)\b</string>
+					<string>\b((([0-9\_]+\.[0-9\_]*)(e[+-]?[0-9\_]+)?|\.?[0-9\_]+e[+-]?[0-9\_]+))\b</string>
 					<key>name</key>
 					<string>constant.numeric.floating-point</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(\$[0-9a-f]+)\b</string>
+					<string>\b([0-9\_]+p[0-9\_]*)\b</string>
+					<key>name</key>
+					<string>constant.numeric.packed-bcd</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(\$0[0-9a-f]+)\b</string>
 					<key>name</key>
 					<string>constant.numeric.literal</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b[01]+b\b</string>
+					<string>\b((0[by][01\_]+)|([01\_]+[by]))\b</string>
 					<key>name</key>
 					<string>constant.numeric.bin</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b[0-7]+[oq]\b</string>
+					<string>\b((0[oq][0-7\_]+)|([0-7\_]+[oq]))\b</string>
 					<key>name</key>
 					<string>constant.numeric.oct</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b[0-9]+\b</string>
+					<string>\b((0d[0-9\_]+)|([0-9\_]+d?))\b</string>
 					<key>name</key>
 					<string>constant.numeric.dec</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b([0-9a-fA-F]+[hH]|0x[0-9a-fA-F]+)\b</string>
+					<string>\b((0[xh][0-9a-fA-F\_]+)|([0-9a-fA-F\_]+[hH]))\b</string>
 					<key>name</key>
 					<string>constant.numeric.hex</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(Inf|NaN)\b</string>
+					<key>name</key>
+					<string>constant.numeric</string>
 				</dict>
 			</array>
 		</dict>
@@ -140,6 +152,12 @@
 					<string>^\s*([$@~])(\w|[_$#@~\.?])*\:</string>
 					<key>name</key>
 					<string>invalid.entity.name.function</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\$</string>
+					<key>name</key>
+					<string>entity.label.special</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -1552,7 +1570,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>["']</string>
+					<string>["'`]</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -1562,7 +1580,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>["']</string>
+					<string>["'`]</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
@@ -1624,7 +1642,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(byte|([doqty]|dq)?word|(d|res)[bdoqtwy]?|ddq|incbin|equ|times|(end|i)?struc|at|iend)\b</string>
+					<string>(?i)\b(s?byte|([doqtyz]|dq|s[dq]?)?word|(d|res)[bdoqtwyz]?|ddq|incbin|equ|times|(end|i)?struc|at|iend)\b</string>
 					<key>name</key>
 					<string>support.type.asm</string>
 				</dict>
@@ -1645,6 +1663,12 @@
 					<string>\b([ao](16|32|64))\b</string>
 					<key>name</key>
 					<string>support.prefix.asm</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b__(utf((16|32)([lb]e)?)|float(8|16|32|64|80[me]|128[lh])|Infinity|[QS]?NaN)__\b</string>
+					<key>name</key>
+					<string>support.function.asm</string>
 				</dict>
 			</array>
 		</dict>
