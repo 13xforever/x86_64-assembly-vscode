@@ -1,4 +1,4 @@
-## 2.2.10
+## 2.2.11
 Better support for datatypes
 * signed types (non-nasm)
 * better support for various number notations (bin, oct, dec, hex, and packed bcd)

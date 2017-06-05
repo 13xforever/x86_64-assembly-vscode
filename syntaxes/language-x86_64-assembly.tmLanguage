@@ -123,12 +123,6 @@
 					<key>name</key>
 					<string>constant.numeric.hex</string>
 				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b(Inf|NaN)\b</string>
-					<key>name</key>
-					<string>constant.numeric</string>
-				</dict>
 			</array>
 		</dict>
 		<key>entities</key>
