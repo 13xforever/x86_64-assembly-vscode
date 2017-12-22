@@ -55,7 +55,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(;|(^|\s)#\s).*$</string>
+					<string>(;|\/\/|(^|\s)#\s).*$</string>
 					<key>name</key>
 					<string>comment.line</string>
 				</dict>
