@@ -1,3 +1,6 @@
+## 2.3.0
+Following the complete rewrite of the grammer for Sublime Text 3, this updates brings some backported changes and fixes to the legacy highlighter
+
 ## 2.2.11
 Better support for datatypes
 * signed types (non-nasm)
