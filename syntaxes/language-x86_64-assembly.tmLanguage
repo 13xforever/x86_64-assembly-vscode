@@ -1880,7 +1880,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(?:strict|nosplit|near|far|abs|rel)\b</string>
+					<string>(?i)\b(?:strict|nosplit|short|near|far|abs|rel)\b</string>
 					<key>name</key>
 					<string>storage.modifier.asm.x86_64</string>
 				</dict>
