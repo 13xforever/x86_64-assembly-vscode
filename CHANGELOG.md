@@ -1,3 +1,7 @@
+## 3.0.0
+Following the request, language id that this package provides, was changed to be more unique.
+This means some associateions, custom language configuration options, and possible embeded language scops might be reset or stop working.
+
 ## 2.3.0
 Following the complete rewrite of the grammer for Sublime Text 3, this updates brings some backported changes and fixes to the legacy highlighter
 
