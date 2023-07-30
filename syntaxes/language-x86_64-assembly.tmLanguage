@@ -191,7 +191,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>^\.?(globa?l|extern)\b</string>
+					<string>^\.?(globa?l|extern|required)\b</string>
 					<key>name</key>
 					<string>entity.directive</string>
 				</dict>
@@ -2091,7 +2091,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>^\s*[%#]\s*(i?x?define|defined|elif(def)?|else|if(macro|ctx|idni?|num|str)?|ifn?def|line|(i|end)?macro|pragma|undef|endif)\b</string>
+					<string>^\s*[%#]\s*(i?x?define|defined|elif(def)?|else|i[fs]n?(?:def|macro|ctx|idni?|id|num|str|token|empty|env)?|line|(i|end|uni?)?macro|pragma|endif)\b</string>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
@@ -2112,11 +2112,15 @@
 							<key>name</key>
 							<string>punctuation.separator.continuation.c</string>
 						</dict>
+						<dict>
+							<key>include</key>
+							<string>#preprocessor-functions</string>
+						</dict>
 					</array>
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>^\s*[#%]\s*(assign|strlen|substr|(end|exit)?rep|push|pop|rotate)\b</string>
+					<string>^\s*[#%]\s*(assign|strlen|substr|(end|exit)?rep|push|pop|rotate|use|ifusing|ifusable|def(?:ailas|str|tok)|undef(?:alias)?)\b</string>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
@@ -2136,6 +2140,39 @@
 							<string>(?&gt;\\\s*\n)</string>
 							<key>name</key>
 							<string>punctuation.separator.continuation.c</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#preprocessor-functions</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>preprocessor-functions</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>((%)(?:(abs|cond|count|eval|isn?(?:def|macro|ctx|idni?|id|num|str|token|empty|env)?|num|sel|str(?:cat|len)?|substr|tok)\s*(\()))</string>
+					<key>captures</key>
+					<dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.preprocessor.asm.x86_64</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(\))|$</string>
+					<key>name</key>
+					<string>meta.preprocessor.function.asm.x86_64</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#preprocessor-functions</string>
 						</dict>
 					</array>
 				</dict>
@@ -2354,7 +2391,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(?:incbin|equ|times)\b</string>
+					<string>(?i)\b(?:incbin|equ|times|dup)\b</string>
 					<key>name</key>
 					<string>support.function.asm.x86_64</string>
 				</dict>
@@ -2386,7 +2423,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>{(vex[23]|evex)}</string>
+					<string>{(vex[23]?|evex|rex)}</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -2432,9 +2469,63 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b__(?:utf(?:(?:16|32)(?:[lb]e)?)|float(?:8|16|32|64|80[me]|128[lh])|Infinity|[QS]?NaN)__\b</string>
+					<string>\b__\?(?:utf(?:(?:16|32)(?:[lb]e)?)|float(?:8|16|32|64|80[me]|128[lh])|bfloat16|Infinity|[QS]?NaN)\?__\b</string>
 					<key>name</key>
 					<string>support.function.asm.x86_64</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b__(?:utf(?:(?:16|32)(?:[lb]e)?)|float(?:8|16|32|64|80[me]|128[lh])|bfloat16|Infinity|[QS]?NaN)__\b</string>
+					<key>name</key>
+					<string>support.function.legacy.asm.x86_64</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b__\?NASM_(?:MAJOR|(?:SUB)?MINOR|SNAPSHOT|VER(?:SION_ID)?)\?__\b</string>
+					<key>name</key>
+					<string>support.function.asm.x86_64</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b___\?NASM_PATCHLEVEL\?__\b</string>
+					<key>name</key>
+					<string>support.function.asm.x86_64</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b__\?(?:FILE|LINE|BITS|OUTPUT_FORMAT|DEBUG_FORMAT)\?__\b</string>
+					<key>name</key>
+					<string>support.function.asm.x86_64</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b__\?(?:(?:UTC_)?(?:DATE|TIME)(?:_NUM)?|POSIX_TIME)\?__\b</string>
+					<key>name</key>
+					<string>support.function.asm.x86_64</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b__\?USE_(?:\w+)\?__\b</string>
+					<key>name</key>
+					<string>support.function.asm.x86_64</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b__\?PASS\?__\b</string>
+					<key>name</key>
+					<string>invalid.deprecated.support.constant.altreg.asm.x86_64</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b__\?ALIGNMODE\?__\b</string>
+					<key>name</key>
+					<string>support.constant.smartalign.asm.x86_64</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b__\?ALIGN_(\w+)\?__\b</string>
+					<key>name</key>
+					<string>support.function.smartalign.asm.x86_64</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -2450,7 +2541,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b__(?:FILE|LINE|BITS|OUTPUT_FORMAT)__\b</string>
+					<string>\b__(?:FILE|LINE|BITS|OUTPUT_FORMAT|DEBUG_FORMAT)__\b</string>
 					<key>name</key>
 					<string>support.function.asm.x86_64</string>
 				</dict>
@@ -2462,7 +2553,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b__USE_(?:ALTREG|SMARTALIGN|FP|IFUNC)__\b</string>
+					<string>\b__USE_(?:\w+)__\b</string>
 					<key>name</key>
 					<string>support.function.asm.x86_64</string>
 				</dict>
@@ -2477,6 +2568,12 @@
 					<string>\b__ALIGNMODE__\b</string>
 					<key>name</key>
 					<string>support.constant.smartalign.asm.x86_64</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b__ALIGN_(\w+)__\b</string>
+					<key>name</key>
+					<string>support.function.smartalign.asm.x86_64</string>
 				</dict>
 				<dict>
 					<key>match</key>

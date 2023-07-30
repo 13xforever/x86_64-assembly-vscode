@@ -1,3 +1,6 @@
+## 3.1.4
+* Updates to NASM syntax up to 2.16.01 (still incomplete compared to new Sublime Text definitions)
+
 ## 3.1.1
 Mnemonics update
 * All extensions previously marked as future, are now incorporated to the main grammar namespace
