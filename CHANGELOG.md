@@ -1,3 +1,10 @@
+## 3.1.1
+Mnemonics update
+* All extensions previously marked as future, are now incorporated to the main grammar namespace
+* Current as of Intel Software Developer's Manual, June 2023
+* Added Intel APX to future extensions section
+* General minor syntax fixes
+
 ## 3.0.0
 Following the request, language id that this package provides, was changed to be more unique.
 This means some associations, custom language configuration options, and possible embedded language scopes might be reset or stop working.
