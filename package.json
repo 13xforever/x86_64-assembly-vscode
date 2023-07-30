@@ -2,7 +2,7 @@
     "name": "language-x86-64-assembly",
     "displayName": "x86 and x86_64 Assembly",
     "description": "Cutting edge x86 and x86_64 assembly syntax highlighting",
-    "version": "3.1.2",
+    "version": "3.1.3",
     "preview": false,
     "icon": "logo.png",
     "engines": {
