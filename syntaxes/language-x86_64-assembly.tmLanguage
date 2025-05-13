@@ -397,6 +397,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#mnemonics-speculation</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#mnemonics-intel-manual-listing</string>
 				</dict>
 				<dict>
@@ -950,6 +954,18 @@
 					<string>(?i)\benqcmds?\b</string>
 					<key>name</key>
 					<string>keyword.operator.word.mnemonic.esi</string>
+				</dict>
+			</array>
+		</dict>
+		<key>mnemonics-speculation</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bib(pb|hf)\b</string>
+					<key>name</key>
+					<string>keyword.operator.word.mnemonic.speculation</string>
 				</dict>
 			</array>
 		</dict>

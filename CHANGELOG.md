@@ -1,3 +1,6 @@
+## 3.1.5
+* Mnemonics for IBPB/IBHF
+
 ## 3.1.4
 * Updates to NASM syntax up to 2.16.01 (still incomplete compared to new Sublime Text definitions)
 
